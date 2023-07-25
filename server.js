@@ -4,8 +4,7 @@ const app = require('./index');
 
 dotenv.config()
 
-let database_url = process.env.DATABASE_URL;
-database_url = database_url.replace("<password>", process.env.DATABASE_PASSWORD);
+const database_url = (process.env.DATABASE_URL||'').replace("<password>", process.env.DATABASE_PASSWORD);
 
 
 class Database {

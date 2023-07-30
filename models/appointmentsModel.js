@@ -26,21 +26,35 @@ const appointmentsSchema =  new mongoose.Schema({
         }
     },
     phone:{
-        type: number,
+        type: Number,
         required: true,
-        validate: (value) => {
-            return validator.isMobilePhone(value);
-        }
     },
     centre:{
-        type: String,
+        type: Number,
+        required: true,
+    },
+    createdAt: { 
+        type: Date, 
+        default: Date.now() 
+    },
+    appointmentTime:{
+        type:Date,
         required: true
     },
-    createdAt: { type: Date, default: Date.now() },
-    
-    appointmentTime:{
-        type: Date,
+    completed:{
+        type: Boolean,
+        default: false
     },
-    
-
+    donor:{
+        type:Boolean,
+        required: true
+        
+    },
+    units:{
+        type:    Number,
+        required: true
+    }
 });
+
+const Appointments = mongoose.model('Appointments',appointmentsSchema);
+module.exports = Appointments;

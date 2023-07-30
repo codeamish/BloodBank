@@ -7,3 +7,5 @@ router
 router
   .route("/bookWithdrawalAppointment")
   .post(bookingController.bookWithdrawalAppointment);
+
+module.exports = router;
